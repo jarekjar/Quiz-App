@@ -1,13 +1,15 @@
-angular.module("Quiz App")
+(function(){angular.module("Quiz App")
     .controller("Login", Login);
 
 Login.$inject = ["LoginService"];
 
 function Login(ls){
+    
     this.goRegister = () => {
         window.location.replace("../register/register.html");
     }
     this.userLogin = () => {
+        this.errorMessage = "";
         const profile = {
             email: this.email,
             password: this.password
@@ -16,10 +18,12 @@ function Login(ls){
         promise.then(
             response => {
                 this.fade = false;
+                window.location.replace("../home/home.html");
             },
             err => {
                 this.fade = false;
-                console.log(err);
+                this.errorMessage = err.data.message
             });
     }
 }
+})();

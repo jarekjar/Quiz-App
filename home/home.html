@@ -45,23 +45,9 @@
         <div class="col card formCard hoverable z-depth-5">
             <form name="myForm" novalidate>
                 <div class="card-content">
-                    <h2 class="center blue-text text-darken-3">Login</h2>
-                    <div class="row">
-                        <div class="input-field col s10 offset-s1">
-                            <label for="email">Email address</label>
-                            <input type="email" class="validate" name="email" ng-model="l.email" />
-                        </div>
-                        <div class="input-field col s10 offset-s1">
-                            <label for="password">Password</label>
-                            <input type="password" class="validate" name="password" ng-model="l.password" />
-                        </div>
-                    </div>
-                    <div style="color: red; float:right;">{{l.errorMessage}}</div>
+                    <h2 class="center blue-text text-darken-3">Welcome, {{user}}!!</h2>
                 </div>
-                <div class="card-action right-align">
-                    <input type="button" id="register" class="btn-flat grey-text waves-effect" value="click here to register" ng-click="l.goRegister()">
-                    <input type="button" class="btn blue darken-3 waves-effect waves-light" value="Login" ng-click="l.userLogin(); l.fade=true;">
-                </div>
+                
 
                 <!-- debug object -->
                 <pre>{{l | json}}</pre>
