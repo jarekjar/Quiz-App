@@ -15,12 +15,10 @@ function Register(rs) {
         const promise = rs.post(profile);
         promise.then(
             response => {
-                console.log('register worked!')
-                console.log(response);
+                $window.location.html = "../login/login.html";
             },
             err => {
                 this.errorMessage = err.data.message || err.data.errors[0];
             });
     };
-
 };
