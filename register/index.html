@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="Quiz App">
+
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body>
+    <script src="../jquery.js"></script>
+    <script src="../angular.js"></script>
+    <script src="../app.js"></script>
+    <script src="../controllers/register.js"></script>
+    <script src="../services/RegisterService.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo right">My Quiz App</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li>
+                        <a href="#" style="font-size: 20px;">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" style="font-size: 20px;">Quizzes</a>
+                    </li>
+                    <li>
+                        <a href="#" style="font-size: 20px;">New Quiz</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="login-box" ng-controller="Register as r">
+        <div class="col card formCard hoverable z-depth-5">
+            <form name="myForm" novalidate>
+                <div class="card-content">
+                    <h2 class="center blue-text text-darken-3">Register</h2>
+                    <div class="row">
+                        <div class="input-field col s10 offset-s1">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="validate" name="firstName" ng-model="r.firstName" />
+                        </div>
+                        <div class="input-field col s10 offset-s1">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="validate" name="lastName" ng-model="r.lastName"/>
+                        </div>
+                        <div class="input-field col s10 offset-s1">
+                            <label for="email">Email address</label>
+                            <input type="email" class="validate" name="email" ng-model="r.email" />
+                        </div>
+                        <div class="input-field col s10 offset-s1">
+                            <label for="password">Password</label>
+                            <input type="password" class="validate" name="password" ng-model="r.password" />
+                        </div>
+                        <div class="input-field col s10 offset-s1
+                        ">
+                            <label for="rPassword">Re-enter Password</label>
+                            <input type="password" class="validate" name="rPassword" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action right-align">
+                    <input type="reset" id="reset" class="btn-flat grey-text waves-effect">
+                    <input type="button" class="btn blue darken-3 waves-effect waves-light" value="Register" ng-click="r.captureReg()">
+                </div>
+                <pre>{{r | json}}</pre>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
