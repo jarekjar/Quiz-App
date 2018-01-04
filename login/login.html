@@ -12,8 +12,12 @@
     <script src="../angular.js"></script>
     <script src="../app.js"></script>
     <script src="../controllers/Login.js"></script>
+    <script src="../services/LoginService.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+
     <div>
         <nav>
             <div class="nav-wrapper">
@@ -34,6 +38,10 @@
     </div>
 
     <div class="login-box" ng-controller="Login as l" ng-model="login">
+        <div id="fade" ng-show="l.fade"></div>
+        <div id="modal" ng-show="l.fade">
+            <img id="loader" src="facebook.gif" />
+        </div>
         <div class="col card formCard hoverable z-depth-5">
             <form name="myForm" novalidate>
                 <div class="card-content">
@@ -52,11 +60,11 @@
                 </div>
                 <div class="card-action right-align">
                     <input type="button" id="register" class="btn-flat grey-text waves-effect" value="click here to register" ng-click="l.goRegister()">
-                    <input type="button" class="btn blue darken-3 waves-effect waves-light" value="Login" ng-click="l.userLogin()">
+                    <input type="button" class="btn blue darken-3 waves-effect waves-light" value="Login" ng-click="l.userLogin(); l.fade=true;">
                 </div>
-                
+
                 <!-- debug object -->
-                <pre>{{r | json}}</pre>
+                <pre>{{l | json}}</pre>
             </form>
         </div>
     </div>
