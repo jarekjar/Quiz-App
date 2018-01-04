@@ -3,7 +3,7 @@ angular.module("Quiz App")
 
 Register.$inject = ["RegisterService"];
 
-function Register(rs){
+function Register(rs) {
     this.captureReg = () => {
         const profile = {
             firstName: this.firstName,
@@ -11,8 +11,16 @@ function Register(rs){
             email: this.email,
             password: this.password
         };
-        rs.post(profile);
+        const promise = rs.post(profile);
+        promise.then(
+            response => {
+                console.log('login worked!')
+                console.log(response);
+            },
+            err => {
+                console.log('login failed.')
+                console.log(err);
+            });
     };
+
 };
-
-
