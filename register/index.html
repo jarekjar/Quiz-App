@@ -62,11 +62,13 @@
                             <input type="password" class="validate" name="rPassword" />
                         </div>
                     </div>
+                    <div style="color: red; float:right;">{{r.errorMessage}}</div>
                 </div>
                 <div class="card-action right-align">
                     <input type="reset" id="reset" class="btn-flat grey-text waves-effect">
                     <input type="button" class="btn blue darken-3 waves-effect waves-light" value="Register" ng-click="r.captureReg()">
                 </div>
+                
                 <!-- debug object -->
                 <pre>{{r | json}}</pre>
             </form>

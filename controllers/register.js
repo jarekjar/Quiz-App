@@ -5,6 +5,7 @@ Register.$inject = ["RegisterService"];
 
 function Register(rs) {
     this.captureReg = () => {
+        this.errorMessage = "";
         const profile = {
             firstName: this.firstName,
             lastName: this.lastName,
@@ -14,12 +15,11 @@ function Register(rs) {
         const promise = rs.post(profile);
         promise.then(
             response => {
-                console.log('login worked!')
+                console.log('register worked!')
                 console.log(response);
             },
             err => {
-                console.log('login failed.')
-                console.log(err);
+                this.errorMessage = err.data.message || err.data.errors[0];
             });
     };
 
