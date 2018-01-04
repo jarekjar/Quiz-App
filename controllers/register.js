@@ -15,9 +15,13 @@ function Register(rs) {
         const promise = rs.post(profile);
         promise.then(
             response => {
-                $window.location.html = "../login/login.html";
+                this.fade = false;
+                console.log(response);
+                alert(response.config.data.firstName + ", your user has been created");
+                window.location.replace("../login/login.html")
             },
             err => {
+                this.fade = false;
                 this.errorMessage = err.data.message || err.data.errors[0];
             });
     };

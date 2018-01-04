@@ -1,1 +1,1 @@
-angular.module('Quiz App', []);
+(function(){angular.module('Quiz App', []);})();
