@@ -18,7 +18,7 @@
     <div>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo right">My Quiz App</a>
+                <a href="#" class="brand-logo center">My Quiz App</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li>
                         <a href="../login/login.html" style="font-size: 20px;">Home</a>
@@ -74,8 +74,9 @@
                     <div style="color: red; float:right;">{{r.errorMessage}}</div>
                 </div>
                 <div class="card-action right-align">
+                    <input type="button" class="btn-flat waves-effect left" value="Returning User? Click here to log in" ng-click="r.login();">
                     <input type="reset" id="reset" class="btn-flat grey-text waves-effect">
-                    <input type="button" class="btn blue darken-3 waves-effect waves-light" value="Register" ng-click="r.captureReg(); r.fade=true;">
+                    <button type="submit" class="btn blue darken-3 waves-effect waves-light" ng-click="r.captureReg();">Register</button>
                 </div>
                 
                 <!-- debug object -->

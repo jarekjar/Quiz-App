@@ -12,6 +12,7 @@ function HomeController(us) {
         },
         err => {
             alert("No user logged in");
+            window.location.href = "../login/login.html"
         }
     )
     this.logout = () => {

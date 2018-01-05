@@ -5,7 +5,9 @@ Register.$inject = ["RegisterService"];
 
 function Register(rs) {
     this.captureReg = () => {
+        if(this.myForm.$valid){
         this.errorMessage = "";
+        this.fade = true;
         const profile = {
             firstName: this.firstName,
             lastName: this.lastName,
@@ -24,5 +26,15 @@ function Register(rs) {
                 this.fade = false;
                 this.errorMessage = err.data.message || err.data.errors[0];
             });
+        } else {
+            this.myForm.firstName.$touched = true;
+            this.myForm.lastName.$touched = true;
+            this.myForm.email.$touched = true;
+            this.myForm.password.$touched = true;
+            this.myForm.rPassword.$touched = true;
+        } 
     };
+    this.login = () => {
+        window.location.href = "../login/login.html";
+    }
 };
