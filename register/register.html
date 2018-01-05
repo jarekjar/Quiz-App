@@ -35,10 +35,10 @@
     </div>
 
     <div class="login-box" ng-controller="Register as r">
-            <div id="fade" ng-show="r.fade" class="ng-hide"></div>
-            <div id="modal" ng-show="r.fade" class="ng-hide">
-                <img id="loader" src="facebook.gif" />
-            </div>
+        <div id="fade" ng-show="r.fade" class="ng-hide"></div>
+        <div id="modal" ng-show="r.fade" class="ng-hide">
+            <img id="loader" src="facebook.gif" />
+        </div>
         <div class="col card formCard hoverable z-depth-5">
             <form name="r.myForm" novalidate>
                 <div class="card-content">
@@ -78,7 +78,7 @@
                     <input type="reset" id="reset" class="btn-flat grey-text waves-effect">
                     <button type="submit" class="btn blue darken-3 waves-effect waves-light" ng-click="r.captureReg();">Register</button>
                 </div>
-                
+
                 <!-- debug object -->
                 <!-- <pre>{{r | json}}</pre> -->
             </form>
