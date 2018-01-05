@@ -14,4 +14,17 @@ function HomeController(us) {
             alert("No user logged in");
         }
     )
+    this.logout = () => {
+        const promise = us.goLogout();
+        promise.then(
+            response => {
+                alert("logged out!")
+                window.location.href = "../login/login.html"
+            },
+            err => {
+                alert("you have failed me")
+                console.log(err);
+            }
+        )
+    }
 };
