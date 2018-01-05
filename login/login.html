@@ -56,11 +56,11 @@
                             <input type="password" class="validate" name="password" ng-model="l.password" />
                         </div>
                     </div>
-                    <div style="color: red; float:right;">{{l.errorMessage}}</div>
+                    <div style="color: red; float:right;" class="ng-cloak">{{l.errorMessage}}</div>
                 </div>
                 <div class="card-action right-align">
                     <input type="button" id="register" class="btn-flat grey-text waves-effect" value="click here to register" ng-click="l.goRegister()">
-                    <input type="button" class="btn blue darken-3 waves-effect waves-light" value="Login" ng-click="l.userLogin(); l.fade=true;">
+                    <input type="submit" class="btn blue darken-3 waves-effect waves-light" value="Login" ng-click="l.userLogin(); l.fade=true;">
                 </div>
 
                 <!-- debug object -->

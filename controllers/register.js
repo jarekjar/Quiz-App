@@ -18,7 +18,7 @@ function Register(rs) {
                 this.fade = false;
                 console.log(response);
                 alert(response.config.data.firstName + ", your user has been created");
-                window.location.replace("../login/login.html")
+                window.location.href = "../login/login.html";
             },
             err => {
                 this.fade = false;

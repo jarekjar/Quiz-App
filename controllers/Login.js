@@ -18,7 +18,7 @@ function Login(ls){
         promise.then(
             response => {
                 this.fade = false;
-                window.location.replace("../home/home.html");
+                window.location.href = "../home/home.html";
             },
             err => {
                 this.fade = false;

@@ -42,7 +42,7 @@
         <div id="modal" ng-show="l.fade" class="ng-hide">
             <img id="loader" src="facebook.gif" />
         </div>
-        <div class="col card formCard hoverable z-depth-5">
+        <div class="col card formCard ng-cloak hoverable z-depth-5"  ng-show="h.welcome">
             <form name="myForm" novalidate>
                 <div class="card-content">
                     <h2 class="center blue-text text-darken-3 ng-cloak">Welcome, {{h.user}}!!</h2>

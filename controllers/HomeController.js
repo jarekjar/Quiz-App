@@ -8,6 +8,7 @@ function HomeController(us) {
     promise.then(
         response => {
             this.user = response.data.item.firstName + " " + response.data.item.lastName
+            this.welcome = true;
         },
         err => {
             alert("No user logged in");
