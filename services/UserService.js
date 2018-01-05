@@ -12,4 +12,12 @@ function UserService(http){
             withCredentials: true
         });
     };
+
+    this.goLogout = () => {
+        return http({
+            method: 'GET',
+            url: 'https://pacoima-ypi.azurewebsites.net/api/users/logout',
+            withCredentials: true
+        });
+    }
 }
