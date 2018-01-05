@@ -62,7 +62,7 @@
                         <div class="input-field col s10 offset-s1">
                             <label for="password">Password</label>
                             <input type="password" name="password" ng-model="r.password" class="validate" required/>
-                            <span style="color:red" ng-if="r.myForm.password.$invalid && r.myForm.password.$touched" ng-pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">Please enter a valid password</span>
+                            <span style="color:red" ng-if="r.myForm.password.$invalid && r.myForm.password.$touched">Please enter a valid password</span>
                         </div>
                         <div class="input-field col s10 offset-s1
                         ">
