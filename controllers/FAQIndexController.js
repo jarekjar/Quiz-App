@@ -52,18 +52,47 @@ function FAQIndexController(fs, us, fss, timeout) {
         );
         this.question = question
         this.answer = answer
-        this.order = parseInt(order); 
-        const faq = {
-            id: faqID,
-            faqCategoryID: catID,
-            question: question,
-            answer: answer,
-            displayOrder: order
-        }
-        console.log(faq);
+        this.order = parseInt(order);
+        this.faqId = faqID 
     }
 
-    this.deleteFaq = (faqID, catID) => {
-        console.log(faqID, catID)
+    this.update = () => {
+        const faq = {
+            id: this.faqId,
+            faqCategoryID: this.options.id,
+            question: this.question,
+            answer: this.answer,
+            displayOrder: this.order
+        }
+        const promise = fs.putFaq(faq, this.faqId);
+        promise.then(
+            response => {
+                Materialize.toast('FAQ has been edited!', 2000, 'blue', function () {
+                    window.location.href = "../faq/faq.html"
+                });
+            }, 
+            err => {
+                Materialize.toast('FAQ could not be edited, try again later', 2000, 'blue', function () {
+                    window.location.href = "../faq/faq.html"
+                });
+            },
+        )
+    }
+
+
+    this.deleteFaq = (faqID) => {
+        const promise = fs.deleteFaq(faqID);
+        promise.then(
+            response => {
+                Materialize.toast('FAQ has been deleted!', 2000, 'blue', function () {
+                    window.location.href = "../faq/faq.html"
+                });
+            },
+            err => {
+                Materialize.toast('FAQ could not be deleted, try again later', 2000, 'blue', function () {
+                    window.location.href = "../faq/faq.html"
+                });
+            }
+        )
     }
 };

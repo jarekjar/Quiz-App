@@ -26,6 +26,7 @@ function FAQController(fs, timeout, us) {
                 "answer": this.answer,
                 "displayOrder": this.order
             }
+            
             const promise = fs.post(faq);
             promise.then(
                 response => {

@@ -56,11 +56,12 @@
                         <i class="material-icons">comment</i>
                         {{category}}</div>
                     <div class="collapsible-body" ng-repeat="stuff in value">
-                        <span>Q: {{stuff.question}}</span><br>
+                        <span><strong>Q: {{stuff.question}}</strong></span><br>
                         <span>A: {{stuff.answer}}</span><br>
                         <span></span>Order: {{stuff.displayOrder}}</span>
-                        <a class="btn-floating blue modal-trigger"  style="margin-left: 20px" data-target="editMod" modal><i class="material-icons" ng-click="f.editFaq(stuff.id, stuff.faqCategoryId, stuff.question, stuff.answer, stuff.displayOrder, category)">border_color</i></a>
                         <a class="btn-floating red" style="float: right;"><i class="material-icons" ng-click="f.deleteFaq(stuff.id)">clear</i></a>
+                        <a class="btn-floating edit-button blue modal-trigger"  style="margin-left: 20px" data-target="editMod" modal><i class="material-icons" ng-click="f.editFaq(stuff.id, stuff.faqCategoryId, stuff.question, stuff.answer, stuff.displayOrder, category)">border_color</i></a>
+                        
                         
                     </div>
                 </li>
@@ -91,11 +92,11 @@
                     <label for="order">Display Order</label>
                     <input type="number" name="order" ng-model="f.order" class="validate" required/>
                     <span style="color:red" ng-if="f.myForm.order.$invalid && f.myForm.order.$touched">Please enter display order number</span>
-                    <pre>{{f | json}}</pre>
                 </div>
+                <span ng-model"faqId"></span>
             </div>
             <div class="modal-footer">
-              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Edit!</a>
+              <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="f.update()">Edit!</a>
             </div>
  </div>
 

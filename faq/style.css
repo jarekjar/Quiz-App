@@ -6,7 +6,7 @@
 .login-box {
     margin: auto;
     width: 50%;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 #fade {
@@ -50,4 +50,9 @@ ul.dropdown-content.select-dropdown li span {
 h1 {
     color: #1565c0;
     font-weight: bold;
+}
+
+.edit-button {
+    float: right;
+    margin-right: 20px;
 }

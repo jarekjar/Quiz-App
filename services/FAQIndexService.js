@@ -3,7 +3,7 @@ angular.module("Quiz App")
 
 FAQIndexService.$inject = ["$http"]
 
-function FAQIndexService(http){
+function FAQIndexService(http) {
     this.getFAQ = () => {
         return http({
             method: 'GET',
@@ -13,13 +13,12 @@ function FAQIndexService(http){
     };
 
     this.sortFaq = (faq) => {
-        faq.sort((a, b) => parseInt(a.displayOrder) - parseInt(b.displayOrder));
+        faq.sort(orderByProperty('displayOrder', 'faqCategoryId'));
+        console.log(faq);
         let sortedFaq = {};
-
-        for(let i = 0; i < faq.length; i++) {
+        for (let i = 0; i < faq.length; i++) {
             let cat = faq[i].category;
-            if (sortedFaq.hasOwnProperty(cat)){
-            } else {
+            if (sortedFaq.hasOwnProperty(cat)) {} else {
                 sortedFaq[cat] = [];
             }
             sortedFaq[cat].push(faq[i])
@@ -27,4 +26,33 @@ function FAQIndexService(http){
         console.log(sortedFaq);
         return sortedFaq;
     }
+
+    this.putFaq = (faq, id) => {
+        return http({
+            method: 'PUT',
+            url: 'https://pacoima-ypi.azurewebsites.net/api/faqs/' + id,
+            withCredentials: true,
+            data: faq
+        });
+    };
+
+    this.deleteFaq = (id) => {
+        return http({
+            method: 'DELETE',
+            url: 'https://pacoima-ypi.azurewebsites.net/api/faqs/' + id,
+            withCredentials: true
+        });
+    }
+
+
+    function orderByProperty(prop) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        return function (a, b) {
+          var equality = a[prop] - b[prop];
+          if (equality === 0 && arguments.length > 1) {
+            return orderByProperty.apply(null, args)(a, b);
+          }
+          return equality;
+        };
+      }
 }
