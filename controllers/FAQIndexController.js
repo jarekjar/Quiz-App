@@ -9,7 +9,6 @@ function FAQIndexController(fs, us, fss, timeout) {
     promise.then(
         response => {
             this.faqList = fs.sortFaq(response.data.items);
-            console.log(response);
         },
         err => {
             console.log("stuff");
@@ -53,6 +52,9 @@ function FAQIndexController(fs, us, fss, timeout) {
         this.answer = answer
         this.order = parseInt(order);
         this.faqId = faqID 
+        this.options = {
+            id: catID
+        }
     }
 
     this.update = () => {

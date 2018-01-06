@@ -73,7 +73,7 @@
             <div class="modal-content">
               <h4>Edit FAQ</h4>
               <div class="input-field col s10 offset-s1">
-                    <select class="selected" ng-model="f.options" material-select ng-options="item as item.name for item in f.catList" required> 
+                    <select class="selected" ng-model="f.options" material-select ng-options="item as item.name for item in f.catList track by item.id" required> 
                     <option value="" disabled>Choose a category</option>
                     </select>
                     <span style="color:red" ng-if="!f.options">Please choose a category</span>
