@@ -29,8 +29,7 @@ function FAQIndexController(fs, us, fss, timeout) {
                 });
             },
             err => {
-                alert("you have failed me")
-                console.log(err);
+                Materialize.toast(err, 2000, 'blue');
             }
         )
     }
@@ -47,7 +46,7 @@ function FAQIndexController(fs, us, fss, timeout) {
                 })       
             },
             err => {
-                console.log("Error retrieving cats")
+                Materialize.toast('Could not recieve cats.', 2000, 'blue');
             }
         );
         this.question = question

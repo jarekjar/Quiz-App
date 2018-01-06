@@ -14,7 +14,6 @@ function FAQIndexService(http) {
 
     this.sortFaq = (faq) => {
         faq.sort(orderByProperty('displayOrder', 'faqCategoryId'));
-        console.log(faq);
         let sortedFaq = {};
         for (let i = 0; i < faq.length; i++) {
             let cat = faq[i].category;
@@ -23,7 +22,6 @@ function FAQIndexService(http) {
             }
             sortedFaq[cat].push(faq[i])
         }
-        console.log(sortedFaq);
         return sortedFaq;
     }
 
