@@ -34,4 +34,13 @@ function FAQIndexController(fs, us) {
             }
         )
     }
+
+    this.editFaq = (faqID, catID) => {
+        console.log(faqID, catID)
+    }
+
+    this.deleteFaq = (faqID, catID) => {
+        console.log(faqID, catID)
+    }
 };
+

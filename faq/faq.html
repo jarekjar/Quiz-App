@@ -46,23 +46,20 @@
         <div id="modal" ng-show="l.fade" class="ng-hide">
             <img id="loader" src="facebook.gif" />
         </div>
+        
         <h1 class="center">FAQ Index</h1>
         <div class="col card formCard ng-cloak hoverable z-depth-5">
-            <ul class="collapsible" data-collapsible="accordion">
-                <li ng-repeat="faq in f.faqList | orderBy: 'displayOrder'">
+            <ul class="collapsible" data-collapsible="accordion" >
+                <li ng-repeat="(category, value) in f.faqList">
                     <div class="collapsible-header">
                         <i class="material-icons">comment</i>
-                        {{faq.category}}</div>
-                    <div class="collapsible-body">
-                        <span>{{faq.question}}</span>
-                        <br>
-                        <span>{{faq.answer}}</span>
-                        <a class="btn-floating btn-small blue" style="float: right" ng-click>
-                            <i class="material-icons">menu</i>
-                        </a>
-                        <a class="btn-floating btn-small blue" style="float: right" ng-click>
-                            <i class="material-icons">menu</i>
-                        </a>
+                        {{category}}</div>
+                    <div class="collapsible-body" ng-repeat="stuff in value">
+                        <span>Q: {{stuff.question}}</span><br>
+                        <span>A: {{stuff.answer}}</span>
+                        <a class="btn-floating blue"  style="margin-left: 20px"><i class="material-icons" ng-click="f.editFaq(stuff.id, stuff.faqCategoryId)">border_color</i></a>
+                        <a class="btn-floating red" style="float: right;"><i class="material-icons" ng-click="f.deleteFaq(stuff.id, stuff.faqCategoryId)">clear</i></a>
+                        
                     </div>
                 </li>
             </ul>
