@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Quiz App" ng-controller="FAQIndexController as f">
+<html ng-app="Quiz App">
 
 <head>
     <title>FAQ Index</title>
@@ -12,10 +12,7 @@
     <script src="../jquery.js"></script>
     <script src="../angular.js"></script>
     <script src="../app.js"></script>
-    <script src="../controllers/FAQIndexController.js"></script>
-    <script src="../services/FAQIndexService.js"></script>
     <script src="../services/UserService.js"></script>
-    <script src="../services/FAQService.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -29,10 +26,10 @@
                         <a href="../home/home.html" style="font-size: 20px;">Home</a>
                     </li>
                     <li>
-                        <a href="../quiz/quiz.html" style="font-size: 20px;">Quizzes</a>
+                        <a href="#" style="font-size: 20px;">Quizzes</a>
                     </li>
                     <li>
-                        <a href="#" style="font-size: 20px;">FAQ</a>
+                        <a href="../faq/faq.html" style="font-size: 20px;">FAQ</a>
                     </li>
                     <li>
                         <a href="#" ng-click="f.logout();" style="font-size: 20px;" class="brand-logo right">Logout</a>
@@ -48,7 +45,7 @@
             <img id="loader" src="facebook.gif" />
         </div>
         
-        <h1 class="center">FAQ Index</h1>
+        <h1 class="center">Quizzes</h1>
         <div class="col card formCard ng-cloak hoverable z-depth-5">
             <ul class="collapsible" data-collapsible="accordion" >
                 <li ng-repeat="(category, value) in f.faqList">
@@ -66,7 +63,7 @@
                     </div>
                 </li>
             </ul>
-            <button type="submit" class="btn blue darken-3 waves-effect waves-light add" ng-click="f.goCreate()" style="margin-bottom: 20px;">Add an FAQ</button>
+            <button type="submit" class="btn blue darken-3 waves-effect waves-light add" ng-click="f.goCreate()" style="margin-bottom: 20px;">Add/Edit Quiz</button>
         </div>
     </div>
     <div id="editMod" class="modal">
