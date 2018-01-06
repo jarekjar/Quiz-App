@@ -2,7 +2,7 @@
 <html ng-app="Quiz App" ng-controller="FAQIndexController as f">
 
 <head>
-    <title>Home Page</title>
+    <title>FAQ Index</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -96,7 +96,7 @@
                 <span ng-model"faqId"></span>
             </div>
             <div class="modal-footer">
-              <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="f.update()">Edit!</a>
+              <input type="submit" class="modal-action modal-close btn blue darken-3 waves-effect waves-light" value="Edit!" ng-click="f.update()" style="margin-right: 40px;">
             </div>
  </div>
 

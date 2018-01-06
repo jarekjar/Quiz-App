@@ -11,6 +11,7 @@
     <script src="../jquery.js"></script>
     <script src="../angular.js"></script>
     <script src="../app.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
     <script src="../controllers/HomeController.js"></script>
     <script src="../services/UserService.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
@@ -49,7 +50,7 @@
             <form name="myForm" novalidate>
                 <div class="card-content">
                     <h2 class="center blue-text text-darken-3 ng-cloak">Welcome, {{h.user}}!!</h2>
-                    <a href="../login/login.html">Not you? Click here to log out.</a>
+                    <a ng-click="h.logout()" href="#">Not you? Click here to log out.</a>
                 </div>
                 
 
