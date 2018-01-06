@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="Quiz App" ng-controller="FAQIndexController as f">
+
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <script src="../jquery.js"></script>
+    <script src="../angular.js"></script>
+    <script src="../app.js"></script>
+    <script src="../controllers/FAQIndexController.js"></script>
+    <script src="../services/FAQIndexService.js"></script>
+    <script src="../services/UserService.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">My Quiz App</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li>
+                        <a href="../home/home.html" style="font-size: 20px;">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" style="font-size: 20px;">Quizzes</a>
+                    </li>
+                    <li>
+                        <a href="#" style="font-size: 20px;">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#" ng-click="f.logout();" style="font-size: 20px;" class="brand-logo right">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="login-box" ng-model="login">
+        <div id="fade" ng-show="l.fade" class="ng-hide"></div>
+        <div id="modal" ng-show="l.fade" class="ng-hide">
+            <img id="loader" src="facebook.gif" />
+        </div>
+        <h1 class="center">FAQ Index</h1>
+        <div class="col card formCard ng-cloak hoverable z-depth-5">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li ng-repeat="faq in f.faqList | orderBy: 'displayOrder'">
+                    <div class="collapsible-header">
+                        <i class="material-icons">comment</i>
+                        {{faq.category}}</div>
+                    <div class="collapsible-body">
+                        <span>{{faq.question}}</span>
+                        <br>
+                        <span>{{faq.answer}}</span>
+                        <a class="btn-floating btn-small blue" style="float: right" ng-click>
+                            <i class="material-icons">menu</i>
+                        </a>
+                        <a class="btn-floating btn-small blue" style="float: right" ng-click>
+                            <i class="material-icons">menu</i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <button type="submit" class="btn blue darken-3 waves-effect waves-light add" ng-click="f.goCreate()">Add an FAQ</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

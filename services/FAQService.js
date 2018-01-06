@@ -11,4 +11,15 @@ function FAQService(http){
             withCredentials: true
         });
     };
-};
+
+
+    this.post = (faq) => {
+        return http({
+            method: 'POST',
+            url: 'https://pacoima-ypi.azurewebsites.net/api/faqs',
+            data: faq,
+            withCredentials: true
+        });
+    }
+}
+    

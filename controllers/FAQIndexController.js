@@ -1,21 +1,25 @@
 angular.module("Quiz App")
-    .controller("HomeController", HomeController);
+    .controller("FAQIndexController", FAQIndexController);
 
-HomeController.$inject = ['UserService']
+FAQIndexController.$inject = ['FAQIndexService', 'UserService']
 
-function HomeController(us) {
-    const promise = us.getUser();
+function FAQIndexController(fs, us) {
+
+    const promise = fs.getFAQ();
     promise.then(
         response => {
-            this.user = response.data.item.firstName + " " + response.data.item.lastName
-            this.welcome = true;
+            this.faqList = fs.sortFaq(response.data.items);
+            console.log(response);
         },
         err => {
-            Materialize.toast('No User Logged In', 2000, 'blue', function () {
-                window.location.href = "../login/login.html"
-            });
+            console.log("stuff");
         }
-    )
+    );
+
+    this.goCreate = () => {
+        window.location.href = "createfaq.html"
+    }
+
     this.logout = () => {
         const promise = us.goLogout();
         promise.then(
