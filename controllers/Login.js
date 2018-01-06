@@ -2,9 +2,11 @@
     angular.module("Quiz App")
         .controller("Login", Login);
 
-    Login.$inject = ["LoginService"];
+    Login.$inject = ["LoginService", '$timeout'];
 
-    function Login(ls) {
+    function Login(ls, timeout) {
+
+        timeout(function(){Materialize.updateTextFields()}); 
 
         this.goRegister = () => {
             window.location.replace("../register/register.html");

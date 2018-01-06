@@ -1,10 +1,10 @@
 angular.module("Quiz App")
     .controller("FAQIndexController", FAQIndexController);
 
-FAQIndexController.$inject = ['FAQIndexService', 'UserService']
+FAQIndexController.$inject = ['FAQIndexService', 'UserService', 'FAQService', '$timeout']
 
-function FAQIndexController(fs, us) {
-
+function FAQIndexController(fs, us, fss, timeout) {
+    $('#editMod').modal();
     const promise = fs.getFAQ();
     promise.then(
         response => {
@@ -35,12 +35,35 @@ function FAQIndexController(fs, us) {
         )
     }
 
-    this.editFaq = (faqID, catID) => {
-        console.log(faqID, catID)
+    this.editFaq = (faqID, catID, question, answer, order, cat) => {
+        console.log(order);
+        const promise = fss.getCats();
+        promise.then(
+            response => {
+                this.catList = response.data.items;
+                timeout(function () {
+                    $('select').material_select();
+                    Materialize.updateTextFields(); 
+                })       
+            },
+            err => {
+                console.log("Error retrieving cats")
+            }
+        );
+        this.question = question
+        this.answer = answer
+        this.order = parseInt(order); 
+        const faq = {
+            id: faqID,
+            faqCategoryID: catID,
+            question: question,
+            answer: answer,
+            displayOrder: order
+        }
+        console.log(faq);
     }
 
     this.deleteFaq = (faqID, catID) => {
         console.log(faqID, catID)
     }
 };
-

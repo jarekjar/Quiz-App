@@ -15,6 +15,7 @@ function FAQIndexService(http){
     this.sortFaq = (faq) => {
         faq.sort((a, b) => parseInt(a.displayOrder) - parseInt(b.displayOrder));
         let sortedFaq = {};
+
         for(let i = 0; i < faq.length; i++) {
             let cat = faq[i].category;
             if (sortedFaq.hasOwnProperty(cat)){
