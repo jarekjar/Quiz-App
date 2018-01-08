@@ -4,7 +4,7 @@ angular.module("Quiz App")
 FAQController.$inject = ['FAQService', '$timeout', 'UserService']
 
 function FAQController(fs, timeout, us) {
-
+    
     const promise = fs.getCats();
     promise.then(
         response => {
